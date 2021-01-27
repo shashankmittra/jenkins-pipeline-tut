@@ -8,25 +8,30 @@ pipeline{
 	}
 
 	stages {
+		stage("init") {
+			steps {
+				script {
+					gv = load "script.groovy"
+				}
+			}
+		}
 		stage("build") {
 			steps {
-				echo "build"
+				script {
+					gv.buildApp()
+				}
 			}
 		}
 		stage("test") {
-			when{
-				expression{
-					params.booleanParam == true
-				}
-			}
 			steps {
-				echo "test"
+				script {
+					gv.testApp()
+				}
 			}
 		}
 		stage("deploy") {
 			steps {
-				echo "deploy"
-				echo "deploying - ${params.choice}"
+				gv.deployApp()
 			}
 		}
 	}
