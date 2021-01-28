@@ -1,11 +1,24 @@
 #!/usr/bin/env groovy
 
-@Library('shared-library-jenkins') _
+@Library('shared-library-jenkins@master') _
 
 pipeline{
          agent any
+
+         tools{
+          maven 'Maven-3.6.3'
+         }
         
-        stages{                 
+        stages{
+
+              stage('maven build'){
+                  steps{
+                      script{
+		    	                sh "mvn clean install"
+                      	  }
+               	     }  
+                 }	
+                 
                  stage ('Check logs') {
                     steps {
                         functions (1,4)
