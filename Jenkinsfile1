@@ -1,5 +1,3 @@
-#!/usr/bin/env groovy
-
 @Library('shared-library-jenkins@master')
 
 pipeline{
