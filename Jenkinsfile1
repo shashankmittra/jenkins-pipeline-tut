@@ -4,21 +4,8 @@
 
 pipeline{
          agent any
-	
-         tools{
-          maven 'Maven-3.6.3'
-         }
         
-        stages{
-
-              stage('maven build'){
-                  steps{
-                      script{
-		    	      sh "mvn clean install"
-                      	  }
-               	     }  
-                 }	
-                 
+        stages{                 
                  stage ('Check logs') {
                     steps {
                         functions (1,4)
