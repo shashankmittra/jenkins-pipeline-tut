@@ -1,8 +1,7 @@
-@Library('shared-library-jenkins@master')
+@Library('shared-library-jenkins@master') _
 
 pipeline{
-
-      agent {
+         agent {
                 docker {
                 image 'maven'
                 args '-v $HOME/.m2:/root/.m2'
