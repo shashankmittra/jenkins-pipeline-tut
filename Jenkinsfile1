@@ -21,8 +21,7 @@ pipeline{
                  
                  stage ('Check logs') {
                     steps {
-                        functions.add(1,4)
-                        functions.multiply(2,4)
+                        functions (1,4)
                     }
                 }
 		
